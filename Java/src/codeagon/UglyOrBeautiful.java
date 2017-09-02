@@ -8,8 +8,26 @@ public class UglyOrBeautiful {
 
 
     static String uglyOrBeautiful(int[] a) {
-    	
-    	return null;
+    	Set<Integer> myset = new HashSet<Integer>();
+    	int max=a[0], last=a[0];
+    	boolean sortflag=true;
+    	for(int i=1;i<a.length;i++){
+    		if(last>a[i]){
+    			sortflag=false;
+    		}
+    		max=Math.max(max, a[i]);
+    		if(myset.contains(a[i])){
+    			return "Ugly";
+    		}else{
+    			myset.add(a[i]);
+    		}
+    		last=a[i];
+    	}
+//    	System.out.println("Max:"+max+" sortflag:"+sortflag);
+    	if(max>a.length || sortflag || max>a.length){
+    		return "Ugly";
+    	}
+    	return "Beautiful";
     }
 
     public static void main(String[] args) {

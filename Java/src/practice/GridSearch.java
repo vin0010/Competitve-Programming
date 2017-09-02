@@ -31,12 +31,18 @@ public class GridSearch {
 //            }
             boolean flag = true;
             int searchlength = search.length;
+//            System.out.println("search:"+searchlength);
             for(int i=0;i<a;i++){
             	if(arr[i].contains(search[0])){
+            		flag=true;
+//            		System.out.println("matched at "+i);
             		if(i+searchlength<a){
+//            			System.out.println("Coming here");
             			for(int xx=1,jj=i+1;xx<search.length;xx++,jj++){
+//            				System.out.println("xx:"+search[xx]+"   jj:"+arr[jj]+" cotains:"+arr[jj].contains(search[xx]));
             				if(!arr[jj].contains(search[xx])){
             					flag=false;
+//            					System.out.println("Breaking for xx:"+search[xx]+"   jj:"+arr[jj]+" cotains:"+arr[jj].contains(search[xx]));
             					break;
             				}
             			}

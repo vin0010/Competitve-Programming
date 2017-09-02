@@ -5,4 +5,4 @@
  * @author gopuv
  *
  */
-package goldmansachs;
+package contests.goldmansachs;

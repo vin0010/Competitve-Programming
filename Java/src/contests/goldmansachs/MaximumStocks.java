@@ -13,13 +13,13 @@ public class MaximumStocks {
 			temp = in.nextInt();
 			map.put(temp, i);
 		}
-		int k = in.nextInt(), sum=0;
+		long k = in.nextInt(), sum=0;
 //		System.out.println("->"+map);
 //		System.out.println("k:"+k);
 		for(int stockPrice : map.keySet()){
 			if(stockPrice<=k){
 				int maxStocks=map.get(stockPrice);
-				int t=k/stockPrice;
+				int t=(int) (k/stockPrice);
 				if(t<maxStocks){
 					sum+=t;
 					k=k-(t*stockPrice);

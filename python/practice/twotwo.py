@@ -12,23 +12,24 @@ def getpowersoftwo():
     return powerset
 
 def check_all_substrings(powerset, input_string):
-    if input_string[0] == "0":
-        # print("removing for {0}".format(input_string))
-        input_string=input_string.replace("0", "")
-        # print(input_string)
     count=0
     length = len(input_string)
     for i in range(length):
         for j in range(i,length):
+            s=input_string[i:j + 1]
             # print(input_string[i:j + 1])
-
-            if int(input_string[i:j + 1]) in powerset:
-                # print("{0} eisxt".format(int(input_string[i:j + 1])))
-                count+=1
+            if s[0] == "0":
+                print("removing for {0}".format(s))
+                s = s[1:]
+                print(s)
+            if s:
+                if int(s) in powerset:
+                    print("{0} eisxt".format(int(input_string[i:j + 1])))
+                    count+=1
             # else:
                 # print("{0} not eisxt".format(input_string[i:j + 1]))
     print(count)
-    # print(powerset)
+    print(powerset)
     # print("2" in powerset)
 
 
