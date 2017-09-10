@@ -11,6 +11,7 @@ def getpowersoftwo():
         powerset.add(pow(2,i))
     return powerset
 
+
 def check_all_substrings(powerset, input_string):
     count=0
     length = len(input_string)
