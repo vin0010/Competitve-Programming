@@ -1,4 +1,4 @@
 Hackerrank
 
 
-This repository contains my submissions on http://hackerrank.com/ against profile https://www.hackerrank.com/Code_X
+This repository contains my submissions on http://hackerrank.com/ against profile hackerrank.com/Code_X
