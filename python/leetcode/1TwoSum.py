@@ -17,4 +17,4 @@ def twoSum(nums, target):
             # print(i, " ", map[target-nums[i]])
             return [i, a]
         map[nums[i]] = i
-print(twoSum([2, 7, 11, 15], 9 ));
+print(twoSum([2, 7, 11, 15], 9 ))
