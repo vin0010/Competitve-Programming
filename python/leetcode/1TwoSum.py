@@ -13,7 +13,8 @@ def twoSum(nums, target):
         # print("->", target-nums[i])
         if (target-nums[i]) in map:
             # print("exist")
-            print(i, " ", map[target-nums[i]])
-            return
+            a = map[target - nums[i]]
+            # print(i, " ", map[target-nums[i]])
+            return [i, a]
         map[nums[i]] = i
-twoSum([2, 7, 11, 15], 9 );
+print(twoSum([2, 7, 11, 15], 9 ));
