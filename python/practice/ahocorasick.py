@@ -2,7 +2,6 @@
 root = dict()
 _end = '_end_'
 
-
 def make_trie(word):
     i = root
     current_dict = i
