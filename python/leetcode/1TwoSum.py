@@ -15,7 +15,8 @@ def twoSum(nums, target):
         #remove from map
         tup = map[nums[i]]
         print("--->",tup)
-        print(tup[0]-1, tup[1].pop(0))
+        tup[1].pop(0)
+        print(tup[0]-1, tup[1])
         #new_tup = (tup[0]-1, tup[1])
 
 
