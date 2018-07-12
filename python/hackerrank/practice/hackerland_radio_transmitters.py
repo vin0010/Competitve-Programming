@@ -20,7 +20,7 @@ for i in my_set:
 # instead of binary search get next big element t
 # print(sorted_arr)
 def binary_search(l, r, x):
-    while l <= r:
+    while l <= r: 
         mid = l + (r - l) // 2
         # print(mid, '---', n)
         if mid==0:
