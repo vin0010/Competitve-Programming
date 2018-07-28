@@ -14,11 +14,15 @@ def twoSum(nums, target):
     for i in range(0, len(nums)):
         #remove from map
         tup = map[nums[i]]
-        print("--->",tup)
-        tup[1].pop(0)
-        print(tup[0]-1, tup[1])
-        #new_tup = (tup[0]-1, tup[1])
+        if tup
+        del map[nums[i]]
 
+        #print("--->",tup)
+        tup[1].pop(0)
+        new_tup = (tup[0]-1, tup[1])
+        #print(tup[0]-1, tup[1])
+        map[nums[i]] = new_tup
+        #new_tup = (tup[0]-1, tup[1])
 
 #print(twoSum([2, 7, 11, 15], 9))
 print(twoSum([3, 3], 9))
