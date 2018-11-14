@@ -62,13 +62,13 @@ def add_two_numbers(l1, l2):
         reminder = 0 if total < 10 else total // 10
         i = i.next
         l1 = l1.next
-        i = i.next
     while l2:  # l2 is not empty
         total = l2.val + reminder
         node = ListNode(total % 10)
         i.next = node
         reminder = 0 if total < 10 else total // 10
         l2 = l2.next
+        i = i.next
     print(reminder)
     if reminder > 0:
         i.next = ListNode(reminder)
