@@ -48,21 +48,21 @@ def add_two_numbers(l1, l2):
         node = ListNode(total % 10)
         i.next = node
         reminder = 0 if total < 10 else total // 10
-        print("reminder:", reminder)
+        # print("reminder:", reminder)
         l1 = l1.next
         l2 = l2.next
         i = i.next
     print_list_node(result.next)
-    print()
+    # print()
     while l1:  # l1 is not empty
         total = l1.val + reminder
-        print("total:", total)
+        # print("total:", total)
         node = ListNode(total % 10)
         i.next = node
         reminder = 0 if total < 10 else total // 10
         i = i.next
         l1 = l1.next
-
+        i = i.next
     while l2:  # l2 is not empty
         total = l2.val + reminder
         node = ListNode(total % 10)
