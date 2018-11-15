@@ -8,7 +8,6 @@
     Solution
         if two arrays overlaps, then mid element is median(mid + next mid in case of array with even number of cells)
         if non overlap
-
 """
 
 
