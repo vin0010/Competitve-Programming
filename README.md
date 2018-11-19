@@ -1,4 +1,7 @@
 Hackerrank
 
 
-This repository contains my submissions on http://hackerrank.com/ against profile hackerrank.com/Code_X
+This repository contains my submissions on 
+http://hackerrank.com/ on my profile hackerrank.com/Code_X
+https://leetcode.com/ on my profile https://leetcode.com/vinoth/
+And contests on https://hackerearth.com
