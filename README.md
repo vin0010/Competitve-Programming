@@ -1,4 +1,4 @@
-My Competitive Programming codes
+My Competitive Programming footprints
 
 Battle | Link | Handle
 --- | --- | ---
