@@ -16,6 +16,5 @@ Solved Language | Repository
 Contests | Repository
 --- | ---
 **Hackerearth HC** | https://github.com/vin0010/Competitve-Programming/tree/master/python/hackerearth/HackerearthHC
-**** | 
-**** | 
-**** | 
+**hackerrank CodeAgon** | https://github.com/vin0010/Competitve-Programming/tree/master/python/hackerrank/codeagon
+**Goldman Sachs** | https://github.com/vin0010/Competitve-Programming/tree/master/Java/src/contests/goldmansachs
