@@ -1,5 +1,7 @@
 My Competitive Programming footprints
 
+[![Gitter](https://img.shields.io/gitter/room/DAVFoundation/DAV-Contributors.svg?style=flat-square)](https://gitter.im/Competitve-Programming/)
+
 Battle | Link | Handle
 --- | --- | ---
 **Hackerrank** | `http://hackerrank.com/` | **https://hackerrank.com/Code_X**
