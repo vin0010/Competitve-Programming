@@ -58,8 +58,10 @@
 left :
 """
 
+
 def small(a, b):
-    return a if a<b else b
+    return a if a < b else b
+
 
 def trap(arr):
     """
@@ -85,11 +87,12 @@ def trap(arr):
         r -= 1
 
     result = 0
-    for i in range(len(arr)-1):
+    for i in range(len(arr) - 1):
         result += small(left[i], right[i]) - arr[i]
-    print("Result : ", result)
-    print(left)
-    print(right)
+    return result
+    # print("Result : ", result)
+    # print(left)
+    # print(right)
 
 
 trap([5, 0, 4, 0, 3, 0, 2, 0, 1, 5])
