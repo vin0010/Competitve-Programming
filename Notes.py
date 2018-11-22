@@ -7,4 +7,4 @@ Big O notation
     O(n log n) - Quick, Heap, Merge,
     https://cdn-images-1.medium.com/max/883/1*KfZYFUT2OKfjekJlCeYvuQ.jpeg
     Most language's in built sorting is based on QuickSort.
-    if you are trying to prepare for your first interview, or perhaps you struggled in your last one, increasing your knowledge on concepts like Big O Notation and other computer science topics will help give you a leg up. 
+    
