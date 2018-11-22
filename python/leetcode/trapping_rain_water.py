@@ -20,11 +20,31 @@
 
 
             If I am not sure about the trapped length, how to adjust it.
-    Input: arr[] = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
-    Output: 6
-    XXXXXXXXXX|
-    XXX|XXX||X|
-    _|_||_||||||
+        Input: arr[] = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+        Output: 6
+        XXXXXXXXXX|
+        XXX|XXX||X|
+        _|_||_||||||
+
+                X   -   -   -   -   -   -   -   -
+                X   -   X   -   -   -   -   -   -
+                X   -   X   -   X   -   -   -   -
+                X   -   X   -   X   -   X   -   -
+                X   -   X   -   X   -   X   -   X
+                __________________________________
+                5   0   4   0   3   0   3   0   2
+        Left:   0   5   
+
+        Simple variation of above scenario
+
+        X   -   -   -   -   -   -   -   -   X
+        X   -   X   -   -   -   -   -   -   X
+        X   -   X   -   X   -   -   -   -   X
+        X   -   X   -   X   -   X   -   -   X
+        X   -   X   -   X   -   X   -   X   X
+        _____________________________________
+        5   0   4   0   3   0   3   0   2   5
+
 
         -   -   -   -   -   -   X   -   -   -   -
         -   -   X   -   -   -   X   X   -   X   -
@@ -32,4 +52,6 @@
         -----------------------------------------
         1   0   2   1   0   1   3   2   1   2   1
 
+        To find water trapped in particular cell, find left big and right big, find smallest(two)-i.
+left :
 """
