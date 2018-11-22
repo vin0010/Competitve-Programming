@@ -33,18 +33,20 @@
                 X   -   X   -   X   -   X   -   X
                 __________________________________
                 5   0   4   0   3   0   3   0   2
-        Left:   0   5   
+        Left:   0   5   5   5   5   5   5   5   5
+        Right:  4   4   3   3   2   2   1   1   0
 
         Simple variation of above scenario
 
-        X   -   -   -   -   -   -   -   -   X
-        X   -   X   -   -   -   -   -   -   X
-        X   -   X   -   X   -   -   -   -   X
-        X   -   X   -   X   -   X   -   -   X
-        X   -   X   -   X   -   X   -   X   X
-        _____________________________________
-        5   0   4   0   3   0   3   0   2   5
-
+                X   -   -   -   -   -   -   -   -   X
+                X   -   X   -   -   -   -   -   -   X
+                X   -   X   -   X   -   -   -   -   X
+                X   -   X   -   X   -   X   -   -   X
+                X   -   X   -   X   -   X   -   X   X
+                _____________________________________
+                5   0   4   0   3   0   3   0   2   5
+        Left:   0   5   5   5   5   5   5   5   5   5
+        Right:  4   4   3   3   2   2   1   1   5   0
 
         -   -   -   -   -   -   X   -   -   -   -
         -   -   X   -   -   -   X   X   -   X   -
@@ -55,3 +57,32 @@
         To find water trapped in particular cell, find left big and right big, find smallest(two)-i.
 left :
 """
+
+
+def trap(arr):
+    """
+    :type height: List[int]
+    :rtype: int
+    """
+    if len(arr) <= 2:
+        return 0
+    left = []
+    lmax = arr[0]
+    rmax = arr[-1:]
+    right = [None] * len(arr)
+    l = 0
+    r = len(arr) - 1
+    while l < len(arr) and r > -1:
+        if arr[l] > lmax:
+            lmax = arr[l]
+        left.append(lmax)
+        if arr[r] > rmax:
+            rmax = arr[r]
+        right[r] = rmax
+        l += 1
+        r -= 1
+    print(left)
+    print(right)
+
+
+trap([5, 0, 4, 0, 3, 0, 3, 0, 2])
