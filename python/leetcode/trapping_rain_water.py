@@ -32,9 +32,9 @@
                 X   -   X   -   X   -   X   -   -
                 X   -   X   -   X   -   X   -   X
                 __________________________________
-                5   0   4   0   3   0   3   0   2
+                5   0   4   0   3   0   2   0   1
         Left:   0   5   5   5   5   5   5   5   5
-        Right:  4   4   3   3   2   2   1   1   0
+        Right:  5   4   4   3   3   2   2   1   1
 
         Simple variation of above scenario
 
@@ -58,6 +58,8 @@
 left :
 """
 
+def small(a, b):
+    return a if a<b else b
 
 def trap(arr):
     """
@@ -68,7 +70,7 @@ def trap(arr):
         return 0
     left = []
     lmax = arr[0]
-    rmax = arr[-1:]
+    rmax = arr[-1]
     right = [None] * len(arr)
     l = 0
     r = len(arr) - 1
@@ -81,8 +83,13 @@ def trap(arr):
         right[r] = rmax
         l += 1
         r -= 1
+
+    result = 0
+    for i in range(len(arr)-1):
+        result += small(left[i], right[i]) - arr[i]
+    print("Result : ", result)
     print(left)
     print(right)
 
 
-trap([5, 0, 4, 0, 3, 0, 3, 0, 2])
+trap([5, 0, 4, 0, 3, 0, 2, 0, 1, 5])
