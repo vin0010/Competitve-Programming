@@ -25,21 +25,23 @@ public class MedianUpdates {
 	}
 
 	private static void printMedian(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
-		
+
 	}
 
 	private static void balanceHeap(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
 		int l = leftHeap.size();
 		int r = rightHeap.size();
-		if(leftHeap.isEmpty() && rightHeap.isEmpty() || l==r) {
+		if (leftHeap.isEmpty() && rightHeap.isEmpty() || l == r) {
 			return;
 		}
-		if(l==0 && r>0) {
-			while(leftHeap.size()-rightHeap.size()<=1) {
+		if (r > l) {
+			while (rightHeap.size() - leftHeap.size() <= 1) {
 				leftHeap.add(rightHeap.poll());
 			}
-		} else if () {
-			
+		} else {
+			while (leftHeap.size() - rightHeap.size() <= 1) {
+				rightHeap.add(leftHeap.poll());
+			}
 		}
 	}
 
@@ -62,7 +64,7 @@ public class MedianUpdates {
 			} else if (operations[i] == "a") {
 				if (leftHeap.isEmpty() && rightHeap.isEmpty()) {
 					leftHeap.add(numbers[i]);
-					//print here itself
+					// print here itself
 				} else if (!leftHeap.isEmpty()) {
 					leftHeap.add(numbers[i]);
 					balanceHeap(leftHeap, rightHeap);
@@ -75,6 +77,8 @@ public class MedianUpdates {
 	}
 
 	public static void main(String[] args) {
+		checkBalacnce();
+		System.exit(0);
 		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
 		queue.add(10);
 		queue.add(13);
@@ -117,5 +121,10 @@ public class MedianUpdates {
 		}
 //		median(x, s);
 		in.close();
+	}
+
+	private static void checkBalacnce() {
+		// TODO Auto-generated method stub
+		
 	}
 }
