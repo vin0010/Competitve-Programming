@@ -11,7 +11,14 @@ import java.util.Scanner;
  * 			Keep left heap(max heap) and right heap(min heap).  
  * 			Center element required? - for starters I dont keep center element
  * 			
- * 				
+ * 				7  
+				r 1  
+				a 1  
+				a 2  
+				a 1  
+				r 1  
+				r 2  
+				r 1  
  * 
  */
 
@@ -25,21 +32,35 @@ public class MedianUpdates {
 	}
 
 	private static void printMedian(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
-
+		int l = leftHeap.size();
+		int r = rightHeap.size();
+//		System.out.println(l + "----" + r);
+		if (l == 0 && r == 0) {
+			System.out.println("Wrong!");
+		} else {
+			if ((l + r) % 2 == 0) {
+				System.out.println(leftHeap.peek() + "--------" + rightHeap.peek());
+			} else if (l > r) {
+				System.out.println(leftHeap.peek());
+			} else {
+				System.out.println(rightHeap.peek());
+			}
+		}
+		
 	}
 
 	private static void balanceHeap(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
 		int l = leftHeap.size();
 		int r = rightHeap.size();
-		if (leftHeap.isEmpty() && rightHeap.isEmpty() || l == r) {
+		if (l == r) {
 			return;
 		}
 		if (r > l) {
-			while (rightHeap.size() - leftHeap.size() <= 1) {
+			while (rightHeap.size() - leftHeap.size() > 1) {
 				leftHeap.add(rightHeap.poll());
 			}
 		} else {
-			while (leftHeap.size() - rightHeap.size() <= 1) {
+			while (leftHeap.size() - rightHeap.size() > 1) {
 				rightHeap.add(leftHeap.poll());
 			}
 		}
@@ -51,34 +72,21 @@ public class MedianUpdates {
 		Comparator<Integer> comparator = medianUpdates.new MyComparator();
 		PriorityQueue<Integer> rightHeap = new PriorityQueue<>(comparator);
 		for (int i = 0; i < numbers.length; i++) {
-			if (operations[i] == "r") {
-				if (leftHeap.isEmpty() && rightHeap.isEmpty()) {
-					System.out.println("Wrong!");
-				} else if (!leftHeap.isEmpty()) {
+			if (operations[i].equals("r")) {
+				if (!leftHeap.remove(numbers[i])) {
 					rightHeap.remove(numbers[i]);
-					balanceHeap(leftHeap, rightHeap);
-				} else {
-					leftHeap.remove(numbers[i]);
-					balanceHeap(leftHeap, rightHeap);
 				}
-			} else if (operations[i] == "a") {
-				if (leftHeap.isEmpty() && rightHeap.isEmpty()) {
-					leftHeap.add(numbers[i]);
-					// print here itself
-				} else if (!leftHeap.isEmpty()) {
-					leftHeap.add(numbers[i]);
-					balanceHeap(leftHeap, rightHeap);
-				} else {
-					rightHeap.add(numbers[i]);
-					balanceHeap(leftHeap, rightHeap);
-				}
+			} else if (operations[i].equals("a")) {
+				leftHeap.add(numbers[i]);
 			}
+			balanceHeap(leftHeap, rightHeap);
+			printMedian(leftHeap, rightHeap);
 		}
 	}
 
 	public static void main(String[] args) {
-		checkBalacnce();
-		System.exit(0);
+//		checkBalacnce();
+//		System.exit(0);
 		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
 		queue.add(10);
 		queue.add(13);
@@ -117,10 +125,11 @@ public class MedianUpdates {
 		for (int i = 0; i < N; i++) {
 			s[i] = in.next();
 			x[i] = in.nextInt();
-			System.out.println("-->" + s[i] + ":" + x[i]);
+//			System.out.println("-->" + s[i] + ":" + x[i]);
 		}
-//		median(x, s);
+		median(x, s);
 		in.close();
+
 	}
 
 	private static void checkBalacnce() {
@@ -131,19 +140,27 @@ public class MedianUpdates {
 		PriorityQueue<Integer> queue1 = new PriorityQueue<Integer>(comparator);
 		queue2.add(10);
 		queue2.add(13);
-		queue2.add(11);
+		queue2.add(17);
 		queue2.add(19);
 		queue2.add(100);
 		queue2.add(90);
-		
-		queue1.add(10);
-		queue1.add(11);
-		queue1.add(3);
-		queue1.add(4);
-		queue1.add(7);
-		queue1.add(2);
-		queue1.add(14);
+		queue2.add(90);
+		System.out.println(queue2);
+		System.out.println(queue2.remove(200));
+		System.out.println(queue2);
+
+//		queue1.add(10);
+//		queue1.add(11);
+//		queue1.add(3);
+//		queue1.add(4);
+//		queue1.add(7);
+//		queue1.add(2);
+//		queue1.add(14);
 		balanceHeap(queue1, queue2);
-		
+		System.out.println("Queue1:--->" + queue1);
+		System.out.println("Queue2:--->" + queue2);
+//		while (!queue2.isEmpty()) {
+//			System.out.println(queue2.poll());
+//		}
 	}
 }
