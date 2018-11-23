@@ -125,6 +125,25 @@ public class MedianUpdates {
 
 	private static void checkBalacnce() {
 		// TODO Auto-generated method stub
+		MedianUpdates medianUpdates = new MedianUpdates();
+		Comparator<Integer> comparator = medianUpdates.new MyComparator();
+		PriorityQueue<Integer> queue2 = new PriorityQueue<>();
+		PriorityQueue<Integer> queue1 = new PriorityQueue<Integer>(comparator);
+		queue2.add(10);
+		queue2.add(13);
+		queue2.add(11);
+		queue2.add(19);
+		queue2.add(100);
+		queue2.add(90);
+		
+		queue1.add(10);
+		queue1.add(11);
+		queue1.add(3);
+		queue1.add(4);
+		queue1.add(7);
+		queue1.add(2);
+		queue1.add(14);
+		balanceHeap(queue1, queue2);
 		
 	}
 }
