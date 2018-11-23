@@ -9,7 +9,8 @@ import java.util.Scanner;
  * 			Key point is we don't have to sort the items every time since we just want the median.
  * 			
  * 			Keep left heap(max heap) and right heap(min heap).  
- * 			Center element required?
+ * 			Center element required? - for starters I dont keep center element
+ * 			
  * 				
  * 
  */
@@ -23,12 +24,27 @@ public class MedianUpdates {
 		}
 	}
 
+	private static void balanceHeap(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap){
+		
+	}
 	private static void median(int[] numbers, String[] operations) {
 		PriorityQueue<Integer> leftHeap = new PriorityQueue<>();
 		MedianUpdates medianUpdates = new MedianUpdates();
 		Comparator<Integer> comparator = medianUpdates.new MyComparator();
-		PriorityQueue<Integer> rightQueue = new PriorityQueue<>(comparator);
+		PriorityQueue<Integer> rightHeap = new PriorityQueue<>(comparator);
+		for (int i = 0; i < numbers.length; i++) {
+			if (operations[i] == "r") {
+				if (leftHeap.isEmpty() && rightHeap.isEmpty()) {
+					System.out.println("Wrong!");
+				} else if (!leftHeap.isEmpty()) {
+					
+				} else {
+					
+				}
+			} else if (operations[i] == "a") {
 
+			}
+		}
 	}
 
 	public static void main(String[] args) {
@@ -70,9 +86,9 @@ public class MedianUpdates {
 		for (int i = 0; i < N; i++) {
 			s[i] = in.next();
 			x[i] = in.nextInt();
-//			System.out.println("-->" + s[i] + ":" + x[i]);
+			System.out.println("-->" + s[i] + ":" + x[i]);
 		}
-		median(x, s);
+//		median(x, s);
 		in.close();
 	}
 }
