@@ -31,6 +31,16 @@ public class MedianUpdates {
 	private static void balanceHeap(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
 		int l = leftHeap.size();
 		int r = rightHeap.size();
+		if(leftHeap.isEmpty() && rightHeap.isEmpty() || l==r) {
+			return;
+		}
+		if(l==0 && r>0) {
+			while(leftHeap.size()-rightHeap.size()<=1) {
+				leftHeap.add(rightHeap.poll());
+			}
+		} else if () {
+			
+		}
 	}
 
 	private static void median(int[] numbers, String[] operations) {
