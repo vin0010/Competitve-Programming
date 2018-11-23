@@ -24,9 +24,15 @@ public class MedianUpdates {
 		}
 	}
 
-	private static void balanceHeap(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap){
+	private static void printMedian(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
 		
 	}
+
+	private static void balanceHeap(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
+		int l = leftHeap.size();
+		int r = rightHeap.size();
+	}
+
 	private static void median(int[] numbers, String[] operations) {
 		PriorityQueue<Integer> leftHeap = new PriorityQueue<>();
 		MedianUpdates medianUpdates = new MedianUpdates();
@@ -37,12 +43,23 @@ public class MedianUpdates {
 				if (leftHeap.isEmpty() && rightHeap.isEmpty()) {
 					System.out.println("Wrong!");
 				} else if (!leftHeap.isEmpty()) {
-					
+					rightHeap.remove(numbers[i]);
+					balanceHeap(leftHeap, rightHeap);
 				} else {
-					
+					leftHeap.remove(numbers[i]);
+					balanceHeap(leftHeap, rightHeap);
 				}
 			} else if (operations[i] == "a") {
-
+				if (leftHeap.isEmpty() && rightHeap.isEmpty()) {
+					leftHeap.add(numbers[i]);
+					//print here itself
+				} else if (!leftHeap.isEmpty()) {
+					leftHeap.add(numbers[i]);
+					balanceHeap(leftHeap, rightHeap);
+				} else {
+					rightHeap.add(numbers[i]);
+					balanceHeap(leftHeap, rightHeap);
+				}
 			}
 		}
 	}
