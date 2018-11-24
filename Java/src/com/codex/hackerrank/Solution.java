@@ -1,6 +1,5 @@
 package com.codex.hackerrank;
 
-import java.text.DecimalFormat;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
@@ -24,34 +23,26 @@ import java.util.Scanner;
  */
 
 public class Solution {
-	// class MyComparator implements Comparator<Integer> { // commented to solve
-	// hackerrank behavior
-	//
-	// @Override
-	// public int compare(Integer o1, Integer o2) {
-	// return o1 > o2 ? -1 : (o1 == o2 ? 0 : 1);
-	// }
-	// }
-
 	private static void printMedian(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap,
 			boolean isNotRemoved) {
 		System.out.println("Left:" + leftHeap);
 		System.out.println("Right:" + rightHeap);
 		int l = leftHeap.size();
 		int r = rightHeap.size();
-//		System.out.println(l + "-----------" + r);
 		if (l == 0 && r == 0 || isNotRemoved) {
 			System.out.println("Wrong!");
 		} else {
 			if (l == r) {
-				Long sum = (long) leftHeap.peek() + (long) rightHeap.peek();
-				// System.out.println("Sum:" + sum);
-				if (sum % 2 == 0) {
+				long left = leftHeap.peek();
+				long right = rightHeap.peek();
+				
+				if ((left+right)%2==0) {
+					long sum = left + right;
 					System.out.println(sum / 2);
-				} else {
-					DecimalFormat df = new DecimalFormat("##############.##########");
-					float res = sum / 2;
-					System.out.println("--->"+df.format(res));
+				}else {
+					double sum = (double) leftHeap.peek() + (double) rightHeap.peek();
+					System.out.printf("%.1f", (sum)/2);
+					System.out.println();
 				}
 			} else if (l > r) {
 				System.out.println(leftHeap.peek());
@@ -96,6 +87,12 @@ public class Solution {
 						isNotRemoved = true;
 				}
 			} else if (operations[i].equals("a")) {
+				//add logic to add it to either left or right
+				if(leftHeap.isEmpty() && rightHeap.isEmpty() || (leftHeap.peek() != null && leftHeap.peek() < numbers[i])) {
+					leftHeap.add(numbers[i]);
+				} else{
+					rightHeap.add(numbers[i]);
+				}
 				leftHeap.add(numbers[i]);
 			}
 			balanceHeap(leftHeap, rightHeap);
@@ -123,6 +120,15 @@ public class Solution {
 	 * 15 a -2147483648 a -2147483648 a -2147483647 r -2147483648 a 2147483647 r
 	 * -2147483648 a 10 a 10 a 10 r 10 r 10 r 10 r 100 r 100 r 100 -2147483648
 	 * -2147483648 -2147483648 -2.14748365E9 -2147483647 0 10 10 10 10 10 0 0 0 0
+	 */
+	/*
+	 5
+a -2147483648
+a -2147483648
+a -2147483647
+r -2147483648
+a 2147483647
+	 
 	 */
 
 }
