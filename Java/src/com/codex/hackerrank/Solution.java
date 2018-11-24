@@ -25,8 +25,8 @@ import java.util.Scanner;
 public class Solution {
 	private static void printMedian(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap,
 			boolean isNotRemoved) {
-		System.out.println("Left:" + leftHeap);
-		System.out.println("Right:" + rightHeap);
+//		System.out.println("Left:" + leftHeap);
+//		System.out.println("Right:" + rightHeap);
 		int l = leftHeap.size();
 		int r = rightHeap.size();
 		if (l == 0 && r == 0 || isNotRemoved) {
@@ -70,7 +70,28 @@ public class Solution {
 		}
 	}
 
-	private static void median(int[] numbers, String[] operations) {
+	private static void median(int number, String operation, PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
+				// PriorityQueue<Integer> rightHeap = new PriorityQueue<Integer>(comparator);
+			boolean isNotRemoved = false;
+			if (operation.equals("r")) {
+				if (!leftHeap.remove(number)) {
+					if (!rightHeap.remove(number))
+						isNotRemoved = true;
+				}
+			} else if (operation.equals("a")) {
+				//add logic to add it to either left or right
+				if(leftHeap.isEmpty() && rightHeap.isEmpty() || (leftHeap.peek() != null && leftHeap.peek() < number)) {
+					leftHeap.add(number);
+				} else{
+					rightHeap.add(number);
+				}
+			}
+			balanceHeap(leftHeap, rightHeap);
+//			System.out.println("---------------------\nAfter :" + operations[i] + " " + numbers[i]);
+			printMedian(leftHeap, rightHeap, isNotRemoved);
+	}
+
+	public static void main(String[] args) {
 		PriorityQueue<Integer> leftHeap = new PriorityQueue<Integer>();
 		PriorityQueue<Integer> rightHeap = new PriorityQueue<Integer>(100, new Comparator<Integer>() {
 			@Override
@@ -78,42 +99,16 @@ public class Solution {
 				return o1 > o2 ? -1 : (o1 == o2 ? 0 : 1);
 			}
 		});
-		// PriorityQueue<Integer> rightHeap = new PriorityQueue<Integer>(comparator);
-		for (int i = 0; i < numbers.length; i++) {
-			boolean isNotRemoved = false;
-			if (operations[i].equals("r")) {
-				if (!leftHeap.remove(numbers[i])) {
-					if (!rightHeap.remove(numbers[i]))
-						isNotRemoved = true;
-				}
-			} else if (operations[i].equals("a")) {
-				//add logic to add it to either left or right
-				if(leftHeap.isEmpty() && rightHeap.isEmpty() || (leftHeap.peek() != null && leftHeap.peek() < numbers[i])) {
-					leftHeap.add(numbers[i]);
-				} else{
-					rightHeap.add(numbers[i]);
-				}
-				leftHeap.add(numbers[i]);
-			}
-			balanceHeap(leftHeap, rightHeap);
-			System.out.println("---------------------\nAfter :" + operations[i] + " " + numbers[i]);
-			printMedian(leftHeap, rightHeap, isNotRemoved);
-		}
-	}
 
-	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int N;
 		N = in.nextInt();
 
-		String s[] = new String[N];
-		int x[] = new int[N];
-
 		for (int i = 0; i < N; i++) {
-			s[i] = in.next();
-			x[i] = in.nextInt();
+			String operation = in.next();
+			int number = in.nextInt();
+			median(number, operation, leftHeap, rightHeap);
 		}
-		median(x, s);
 		in.close();
 	}
 	/*
