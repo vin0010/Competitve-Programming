@@ -22,7 +22,7 @@ import java.util.Scanner;
  * 
  */
 
-public class Solution {
+public class MedianUpdates {
 	private static void printMedian(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap,
 			boolean isNotRemoved) {
 //		System.out.println("Left:" + leftHeap);
