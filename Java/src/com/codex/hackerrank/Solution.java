@@ -1,6 +1,5 @@
 package com.codex.hackerrank;
 
-import java.math.BigInteger;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
@@ -33,6 +32,8 @@ public class Solution {
 //	}
 
 	private static void printMedian(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
+		System.out.println("Left:"+leftHeap);
+		System.out.println("Left:"+leftHeap);
 		int l = leftHeap.size();
 		int r = rightHeap.size();
 //		System.out.println(l + "-----------" + r);
@@ -112,4 +113,37 @@ public class Solution {
 		median(x, s);
 		in.close();
 	}
+	/*
+	 15
+a -2147483648
+a -2147483648
+a -2147483647
+r -2147483648
+a 2147483647
+r -2147483648
+a 10
+a 10
+a 10
+r 10
+r 10
+r 10
+r 100
+r 100
+r 100
+-2147483648
+-2147483648
+-2147483648
+-2.14748365E9
+-2147483647
+0
+10
+10
+10
+10
+10
+0
+0
+0
+0
+	 */
 }
