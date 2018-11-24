@@ -13,10 +13,7 @@
 
 
 def get_sum(i, arr):
-    if i <= 0:
-        return 0
-    else:
-        return arr[i - 1]
+    return 0 if i <= 0 else arr[i - 1]
 
 
 def shortest_subarray(A, K):
@@ -33,12 +30,16 @@ def shortest_subarray(A, K):
     l = len(sum_list)
     for i in range(l):
         for j in range(i, l):
-            print("Sum of {0} to {1}".format(i, j))
-            print("Sum of {0} to {1} is {3}".format(i, j, sum_list[i] - sum_list[j - 1]))
-    print(sum_list)
+            if sum_list[j] - get_sum(i, sum_list) == K:
+                print("Sum of {0} to {1}".format(i, j))
+                return j - i + 1
+            # print(sum_list[j] - get_sum(i, sum_list))
+            # val = sum_list[j] - get_sum(i, sum_list)
+    # print(sum_list)
     # for i in range(3):
     #     for j in range(i, 3):
     #         print("{0} and {1}".format(i, j))
 
 
-shortest_subarray([3, 7, 9, 1, 2, 4], 12)
+print(shortest_subarray([3, 7, 9, 1, 2, 4], 23))
+print(shortest_subarray([48, 99, 37, 4, -31], 140))
