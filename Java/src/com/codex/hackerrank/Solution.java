@@ -40,7 +40,7 @@ public class Solution {
 					long sum = left + right;
 					System.out.println(sum / 2);
 				}else {
-					double sum = (double) leftHeap.peek() + (double) rightHeap.peek();
+					double sum = left + right;
 					System.out.printf("%.1f", (sum)/2);
 					System.out.println();
 				}
@@ -71,7 +71,6 @@ public class Solution {
 	}
 
 	private static void median(int number, String operation, PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
-				// PriorityQueue<Integer> rightHeap = new PriorityQueue<Integer>(comparator);
 			boolean isNotRemoved = false;
 			if (operation.equals("r")) {
 				if (!leftHeap.remove(number)) {
@@ -87,7 +86,6 @@ public class Solution {
 				}
 			}
 			balanceHeap(leftHeap, rightHeap);
-//			System.out.println("---------------------\nAfter :" + operations[i] + " " + numbers[i]);
 			printMedian(leftHeap, rightHeap, isNotRemoved);
 	}
 
