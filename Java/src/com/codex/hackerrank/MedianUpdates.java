@@ -54,6 +54,8 @@ public class MedianUpdates {
 	}
 
 	private static void balanceHeap(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
+		//possible slowness here
+		//How can I make a better balancing of heap
 		int l = leftHeap.size();
 		int r = rightHeap.size();
 		if (l == r) {
