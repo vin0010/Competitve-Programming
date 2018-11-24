@@ -33,7 +33,7 @@ public class Solution {
 
 	private static void printMedian(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
 		System.out.println("Left:"+leftHeap);
-		System.out.println("Left:"+leftHeap);
+		System.out.println("Right:"+rightHeap);
 		int l = leftHeap.size();
 		int r = rightHeap.size();
 //		System.out.println(l + "-----------" + r);
