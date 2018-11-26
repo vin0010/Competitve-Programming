@@ -1,5 +1,7 @@
 My Competitive Programming footprints
 
+[![Build Status](https://travis-ci.org/vin0010/Competitve-Programming.svg?branch=master)](https://travis-ci.org/vin0010/Competitve-Programming)
+
 [![Gitter](https://img.shields.io/gitter/room/DAVFoundation/DAV-Contributors.svg?style=flat-square)](https://gitter.im/Competitve-Programming/)
 
 Battle | Link | Handle
