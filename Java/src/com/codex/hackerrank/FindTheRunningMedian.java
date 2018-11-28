@@ -17,33 +17,21 @@ public class FindTheRunningMedian {
 		int n = in.nextInt();
 		for (int i = 0; i < n; i++) {
 			int number = in.nextInt();
-//			leftHeap.add(number);
 			printMedian(number, leftHeap, rightHeap);
-//			System.out.println("--->"+number);
 		}
-//		System.out.println(leftHeap.peek());
-//		while (!leftHeap.isEmpty()) {
-//			System.out.println(leftHeap.poll());
-//		}
 		in.close();
 	}
 
 	private static void printMedian(int number, PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
-//		System.out.println("\nAfter inserting :"+number);
 		if (!leftHeap.isEmpty() && leftHeap.peek() > number) {
 			leftHeap.add(number);
 		} else {
 			rightHeap.add(number);
 		}
 		balanceHeap(leftHeap, rightHeap);
-		
-		// TODO Auto-generated method stub
-
 	}
 
 	private static void balanceHeap(PriorityQueue<Integer> leftHeap, PriorityQueue<Integer> rightHeap) {
-		// possible slowness here
-		// How can I make a better balancing of heap
 		int l = leftHeap.size();
 		int r = rightHeap.size();
 		if (r > l) {
@@ -55,16 +43,14 @@ public class FindTheRunningMedian {
 				rightHeap.add(leftHeap.poll());
 			}
 		}
-//		System.out.println("Left:"+leftHeap);
-//		System.out.println("Right:"+rightHeap);
 		l = leftHeap.size();
 		r = rightHeap.size();
-		if(l==r) {
-			System.out.println(((double) leftHeap.peek()+(double) rightHeap.peek())/2);
-		} else if(l>r){
-			System.out.println((double)leftHeap.peek());
+		if (l == r) {
+			System.out.println(((double) leftHeap.peek() + (double) rightHeap.peek()) / 2);
+		} else if (l > r) {
+			System.out.println((double) leftHeap.peek());
 		} else {
-			System.out.println((double)rightHeap.peek());
+			System.out.println((double) rightHeap.peek());
 		}
 	}
 }
