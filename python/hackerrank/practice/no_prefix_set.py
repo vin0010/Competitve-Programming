@@ -3,22 +3,34 @@
 
 """
 
+
 def update_trie(names):
     trie = dict()
+    _end_ = '_end_'
     # current_dict = trie
     for name in names:
         current_dict = trie
-        for char in name:
-            if char in current_dict:
-                current_dict = current_dict.setdefault(char, {})
-            else:
-                tup = (1, dict())
-                current_dict[char] = tup
+        for i in range(len(name)):
+            current_dict = current_dict.setdefault(name[i], dict())
+            if _end_ in current_dict:
+                print(current_dict)
+                print('BAD SET')
+                print(name)
+                return
+        current_dict[_end_] = _end_
 
-        current_dict = current_dict[char][1]
-    return trie
+    print('GOOD SET')
+            # print(name[:i+1]) if _end_ in current_dict else 0
 
 
 my_trie = dict()
 
-print(update_trie(my_trie, 'add'))
+# update_trie(['add', 'act', 'adder'])
+
+queries_rows = int(input())
+queries = []
+
+for _ in range(queries_rows):
+    queries.append(input())
+
+update_trie(queries)
