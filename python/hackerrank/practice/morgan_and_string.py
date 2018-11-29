@@ -9,9 +9,16 @@ ABACABA
 DAJACKNIEL
 AABABACABACABA
 
+DAJACKNIEL
+AABABACABACABA
 
-
+Incase of an equal string make sure you check for lexicographically minimal string.
+For time saving, when we check for lexicographically least string return merged peace as well.
 """
+
+
+def lexicographicalorder(a, b, i, j):
+    result = []
 
 
 def morganAndString(a, b):
@@ -42,3 +49,5 @@ for t_itr in range(t):
     a = input()
     b = input()
     morganAndString(a, b)
+
+lexicographicalorder("ZJWDEGFNRMTIYSXLVFDJVMTLPSX","ZJPVFQCGSRYJAFEJETMCVFSLIQM",0,0)
