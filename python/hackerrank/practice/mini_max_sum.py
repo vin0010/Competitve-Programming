@@ -1,9 +1,16 @@
 """
     https://www.hackerrank.com/challenges/mini-max-sum/problem
 """
+
+
 arr = list(map(int, input().split()))
-print(arr)
 
-min = arr[0], max = arr[0]
+mini = arr[0]
+maxi = arr[0]
 
-sum(sum(arr[0:len(arr)]))
+theSum = 0
+for i in arr:
+    mini = min(mini, i)
+    maxi = max(maxi, i)
+    theSum = theSum + i
+print(theSum-maxi, theSum-mini)
