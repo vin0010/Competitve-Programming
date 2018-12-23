@@ -13,4 +13,6 @@ for i in arr:
     mini = min(mini, i)
     maxi = max(maxi, i)
     theSum = theSum + i
+
+
 print(theSum-maxi, theSum-mini)
