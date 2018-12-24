@@ -6,11 +6,20 @@ arr = list(map(int, input().split()))
 
 my_dict = dict()
 for i in arr:
-    # print(i)
     my_dict[i] = my_dict.setdefault(i, 0) + 1
 
-maxi=0
-for key in sorted(my_dict.keys()):
-    
+maxi = 0
+keys = sorted(my_dict.keys())
 
+maxi = my_dict[keys[0]]
+current_max = maxi
+for i in range(1, len(keys)-1):
+    print("Key:", i)
+    if abs(keys[i] - keys[i - 1]) == 1 :
+        current_max += my_dict[keys[i]]
+    else:
+        current_max = my_dict[keys[i]]
+    maxi = max(maxi, current_max)
+print(keys)
 print(my_dict)
+print(maxi)
