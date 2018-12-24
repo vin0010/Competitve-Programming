@@ -6,13 +6,15 @@ arr = list(map(int, input().split()))
 
 max_value = 1
 current_max = 1
-print(arr)
+# print(arr)
 arr = sorted(arr)
 # print(arr)
+t = arr[0]
 for i in range(1, len(arr) - 1):
-    if abs(arr[i] - arr[i - 1]) <= 1:
+    if abs(arr[i] - t) <= 1:
         current_max += 1
     else:
+        t=arr[i]
         current_max = 1
     max_value = max(max_value, current_max)
 
