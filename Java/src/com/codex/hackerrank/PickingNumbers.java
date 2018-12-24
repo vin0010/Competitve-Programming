@@ -1,9 +1,12 @@
 package com.codex.hackerrank;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 /*
  * https://www.hackerrank.com/challenges/picking-numbers/problem
  */
 import java.util.Scanner;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class PickingNumbers {
@@ -20,7 +23,9 @@ public class PickingNumbers {
 				map.put(x, 1);
 			}
 		}
-		Integer[] keys = (Integer[]) map.keySet().toArray();
+		Set<Integer> set = map.keySet();
+		Integer[] list = new Integer[n];
+		Integer[] keys = set.toArray(list);
 		int max = map.get(keys[0]);
 		int currentMax = max;
 		for (int i = 1; i < keys.length; i++) {
