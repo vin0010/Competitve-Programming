@@ -6,21 +6,20 @@ arr = list(map(int, input().split()))
 
 max_value = 1
 current_max = 1
-# print(arr)
 arr = sorted(arr)
-# print(arr)
 t = arr[0]
-for i in range(1, len(arr) - 1):
+for i in range(1, len(arr)):
     if abs(arr[i] - t) <= 1:
         current_max += 1
     else:
-        t=arr[i]
+        t = arr[i]
         current_max = 1
     max_value = max(max_value, current_max)
 
 print(max_value)
 
 
+# different approach
 def trial():
     my_dict = dict()
     for i in arr:
