@@ -37,6 +37,4 @@ def trial():
         else:
             current_max = my_dict[keys[i]]
         maxi = max(maxi, current_max)
-    print(keys)
-    print(my_dict)
     print(maxi)
