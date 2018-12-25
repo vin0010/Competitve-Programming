@@ -2,6 +2,7 @@
     https://www.hackerrank.com/challenges/circular-array-rotation/problem
 """
 
+
 def get_index(i, shift, l):
     if i == 0:
         return l - shift
