@@ -1,10 +1,36 @@
-language: python
+matrix:
+  include:
+    - language: python
+      python: 2.7
+      before_script:
+        - cd backend/tests
+      script:
+        - python -m unittest discover
 
-python:
-    - "2.6"
-    - "2.7"
-    - "3.3"
-    - "3.4"
-    - "3.5"
+    - language: android
+      jdk: oraclejdk8
+      android:
+        components:
+          - tools
+          - android-25
+          - build-tools-25.0.3
+      before_script:
+        - cd android/AppName
+      script:
+        - ./gradlew build connectedCheck
+
+   - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+      env:
+         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+
+before_install:
+    - eval "${MATRIX_EVAL}"
+
 install:
   - pip install -r requirements.txt
