@@ -1,25 +1,12 @@
+script:
+  - jdk_switcher use oraclejdk8
+
+install: pip install --user -r requirements.txt
+  
 matrix:
   include:
-    - language: python
-      python: 2.7
-      before_script:
-        - cd backend/tests
-      script:
-        - python -m unittest discover
-
-    - language: android
-      jdk: oraclejdk8
-      android:
-        components:
-          - tools
-          - android-25
-          - build-tools-25.0.3
-      before_script:
-        - cd android/AppName
-      script:
-        - ./gradlew build connectedCheck
-
-   - os: linux
+    # works on Precise and Trusty
+    - os: linux
       addons:
         apt:
           sources:
@@ -29,8 +16,38 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
 
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env:
+         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+
 before_install:
     - eval "${MATRIX_EVAL}"
-
-install:
-  - pip install -r requirements.txt
