@@ -13,7 +13,7 @@ public class CavityMap {
         for(int i=0; i < n; i++){
             grid[i] = in.next();
         }
-        int arr[][] = new int[n][n];
+//        int arr[][] = new int[n][n];
         for(int i=0;i<n;i++){
         	
         }

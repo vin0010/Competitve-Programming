@@ -1,7 +1,5 @@
 package com.codex.hackerrank;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 /*
  * https://www.hackerrank.com/challenges/picking-numbers/problem
  */

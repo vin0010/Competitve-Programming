@@ -8,7 +8,7 @@ public class GridSearch {
         int t = in.nextInt();
         for(int x = 0; x < t; x++){
             int a = in.nextInt();
-            int b = in.nextInt();
+//            int b = in.nextInt();
             String[] arr = new String[a];
             for(int i=0; i < a; i++){
                 arr[i] = in.next();
@@ -20,7 +20,7 @@ public class GridSearch {
 //            }
 //            System.exit(0);
             int c = in.nextInt();
-            int d = in.nextInt();
+//            int d = in.nextInt();
             
             String[] search = new String[c];
             for(int i=0; i < c; i++){

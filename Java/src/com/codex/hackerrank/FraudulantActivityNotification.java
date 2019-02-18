@@ -10,7 +10,7 @@ public class FraudulantActivityNotification {
 	
 	public static void main(String[] args) {
 		try(Scanner scanner = new Scanner(System.in)){
-			int n = scanner.nextInt();
+//			int n = scanner.nextInt();
 			
 		}
 	}
